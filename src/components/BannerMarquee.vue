@@ -16,6 +16,7 @@ span {
   margin-right: 5px;
 }
 #vl-marquee {
+  user-select: none;
   font-family: 'Advent Pro', sans-serif;
   position: fixed;
   transform: rotate(90deg);
@@ -26,6 +27,7 @@ span {
   margin-right: 10px;
 }
 #vr-marquee {
+  user-select: none;
   font-family: 'Advent Pro', sans-serif;
   position: fixed;
   transform: rotate(-90deg);
