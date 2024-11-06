@@ -20,6 +20,7 @@ import LogoIcon from '@/assets/icons/logo.svg'
   padding: 5px 25px;
   position: relative;
   top: 0%;
+  width: 95vw;
 }
 h1 {
   font-family: 'Advent Pro', sans-serif;
@@ -36,6 +37,7 @@ h1 {
   /* For mobile phones: */
   #head-box {
     padding: 2px 15px;
+    width: 90vw;
   }
 
   img {
