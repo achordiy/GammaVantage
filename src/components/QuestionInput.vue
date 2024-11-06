@@ -67,4 +67,11 @@ img {
 #inp-box button:hover {
   background-color: #101524;
 }
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+
+  #inp-box {
+    width: 85vw;
+  }
+}
 </style>

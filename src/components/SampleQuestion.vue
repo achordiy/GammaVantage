@@ -57,8 +57,16 @@ const dummyQues = SampleQuestions()
   font-weight: 700;
   font-style: normal;
   font-variation-settings: 'wdth' 100;
+  font-size: 17px;
 }
 .question-marquee:hover {
   opacity: 100%;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #sample-que-box {
+    width: 90vw;
+    margin: 0% auto;
+  }
 }
 </style>
