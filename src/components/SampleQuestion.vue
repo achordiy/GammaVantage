@@ -39,6 +39,7 @@ const dummyQues = SampleQuestions()
 #sample-que-box {
   width: 68vw;
   margin: 0% auto;
+  margin-bottom: 10vh;
 }
 .question-marquee-box {
   margin: 5px;
