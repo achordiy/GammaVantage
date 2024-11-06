@@ -5,15 +5,15 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <div id="footer-box">
-    <router-link to="/about" class="nav-element" > About Us </router-link>
+    <router-link to="/about" class="nav-element"> About Us </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element" > Whatsapp </router-link>
+    <router-link to="/about" class="nav-element"> Whatsapp </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element" > Blogs </router-link>
+    <router-link to="/about" class="nav-element"> Blogs </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element" > Contacts </router-link>
+    <router-link to="/about" class="nav-element"> Contacts </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="t&c" class="nav-element" > Terms & Condition </router-link>
+    <router-link to="t&c" class="nav-element"> Terms & Condition </router-link>
   </div>
 </template>
 
@@ -45,9 +45,21 @@ import { RouterLink } from 'vue-router'
   justify-content: center;
   position: fixed;
   bottom: 0%;
+  right: 1px;
   margin-bottom: 20px;
   z-index: 100;
   width: 100%;
   gap: 15px;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .nav-element {
+    font-size: 13px;
+    color: #c8d1e6;
+  }
+  #footer-box {
+    right: 1px;
+  }
 }
 </style>
