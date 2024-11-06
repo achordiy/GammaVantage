@@ -4,7 +4,13 @@ import EnterBtn from '@/assets/icons/EnterBtn.svg'
 
 <template>
   <div id="inp-box">
-    <textarea name="Text1" rows="3" cols="5" placeholder="Ask for precision..."></textarea>
+    <textarea
+      v-autosize
+      name="Text1"
+      rows="3"
+      cols="5"
+      placeholder="Ask for precision..."
+    ></textarea>
     <button><img :src="EnterBtn" alt="Enter" /></button>
   </div>
 </template>
@@ -21,6 +27,7 @@ import EnterBtn from '@/assets/icons/EnterBtn.svg'
   background-color: #161c2e;
   margin: 0% auto;
   margin-top: 13vh;
+  margin-bottom: 10vh;
 }
 textarea:focus {
   outline: none;
