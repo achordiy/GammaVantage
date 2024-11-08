@@ -25,7 +25,7 @@ const router = createRouter({
       component: TermView,
     },
     {
-      path: '/article/:id',
+      path: '/article',
       name: 'article',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route

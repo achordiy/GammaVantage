@@ -7,19 +7,20 @@ import SeactionHeading from './SeactionHeading.vue'
   <div id="about-box">
     <SeactionHeading head1="About Us" head2="GammaVantage: Redefining F&O Trading" />
     <div id="about-text">
-      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quasi iure reiciendis aliquam minima
-      porro ea libero aperiam laborum illo, dignissimos necessitatibus quam! Blanditiis maxime
-      ducimus delectus sequi quos eveniet harum.
+      GammaVantage is more than a platform; it's a gateway to refined, data-driven trading insights
+      for the modern Futures and Options (F&O) trader. Founded with a vision to empower traders at
+      all levels, GammaVantage merges advanced AI technology with real-time data, creating an
+      unparalleled trading experience.
       <br />
-      <h3>mini headding</h3>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum ab in sint natus
-      molestiae eligendi magnam veritatis repellendus. Rerum saepe officiis quis ipsa labore
-      corporis ipsum at corrupti pariatur.
+      <h3>Our Mission</h3>
+      To transform the world of F&O trading by providing precision insights, empowering traders to
+      make confident, informed decisions in the fast-moving financial market.
       <br />
-      <h3>mini headding 2</h3>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptatum ab in sint natus
-      molestiae eligendi magnam veritatis repellendus. Rerum saepe officiis quis ipsa labore
-      corporis ipsum at corrupti pariatur.
+      <h3>Our Journey</h3>
+      GammaVantage was born out of a passion for innovation and a commitment to excellence. We saw
+      an opportunity to bridge the gap between complex market data and accessible, actionable
+      insights. Today, we serve a growing community of traders who rely on us for data accuracy,
+      seamless design, and cutting-edge tools.
     </div>
   </div>
 </template>
