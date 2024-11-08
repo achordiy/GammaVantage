@@ -5,13 +5,13 @@ import { RouterLink } from 'vue-router'
 
 <template>
   <div id="footer-box">
-    <router-link to="/about" class="nav-element"> About Us </router-link>
+    <router-link to="/about#about-box" class="nav-element"> About Us </router-link>
     <span class="nav-element-dot">•</span>
     <router-link to="/about" class="nav-element"> Whatsapp </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element"> Blogs </router-link>
+    <router-link to="/about#blogs-box" class="nav-element"> Blogs </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element"> Contacts </router-link>
+    <router-link to="/about#contact-box" class="nav-element"> Contacts </router-link>
     <span class="nav-element-dot">•</span>
     <router-link to="t&c" class="nav-element"> Terms & Condition </router-link>
   </div>

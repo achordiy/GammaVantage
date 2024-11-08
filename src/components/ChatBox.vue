@@ -4,14 +4,19 @@ import { useChatStore } from '@/stores/aichat'
 import { useChatDataStore } from '@/stores/ChatData'
 const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
+const skippedFirstScroll = ref(false)
 
 const scrollToBottom = () => {
   setTimeout(() => {
     // alert('asdas')
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: 'smooth',
-    })
+    if (skippedFirstScroll.value) {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: 'smooth',
+      })
+    } else {
+      skippedFirstScroll.value = true
+    }
   }, 100)
 }
 
@@ -83,8 +88,9 @@ watch(ChatData.ChatList, scrollToBottom)
   /* background-color: #161c2e; */
   margin: 0% auto;
   margin-top: 3vh;
-  margin-bottom: 18vh;
-
+  /* margin-bottom: 18vh; */
+  margin-bottom: 10vh;
+  padding-bottom: 8vh;
   z-index: 10;
 }
 

@@ -15,18 +15,21 @@ const setAIChatScreen = () => {
   ChatStore.isChatOpened = true
 }
 
-const onQuestionAsk = () => {
+async function onQuestionAsk() {
   if (questionInput.value !== '') {
     if (!ChatStore.isChatOpened) {
       setAIChatScreen()
     }
 
-    ChatData.Add2ChatList(questionInput.value, true)
+    const userText = questionInput.value
+
+    ChatData.Add2ChatList(userText, true)
     ChatStore.ProcessingAi = true
-    AiAnswer.value = SampleAnswers()
+
+    questionInput.value = ''
+    AiAnswer.value = await SampleAnswers()
     ChatData.Add2ChatList(AiAnswer.value.answer, false)
     ChatStore.ProcessingAi = false
-    questionInput.value = ''
   }
 }
 </script>
