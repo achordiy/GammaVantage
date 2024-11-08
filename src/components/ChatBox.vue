@@ -1,9 +1,21 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { useChatStore } from '@/stores/aichat'
 import { useChatDataStore } from '@/stores/ChatData'
 const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
+
+const scrollToBottom = () => {
+  setTimeout(() => {
+    // alert('asdas')
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth',
+    })
+  }, 100)
+}
+
+watch(ChatData.ChatList, scrollToBottom)
 </script>
 
 <template>

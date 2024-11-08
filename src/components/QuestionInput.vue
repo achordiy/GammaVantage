@@ -1,6 +1,6 @@
 <script setup>
 import EnterBtn from '@/assets/icons/EnterBtn.svg'
-import { ref } from 'vue'
+import { nextTick, ref } from 'vue'
 import { SampleAnswers } from '@/assets/testData'
 
 import { useChatStore } from '@/stores/aichat'
@@ -10,10 +10,8 @@ const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
 const questionInput = ref('')
 const AiAnswer = ref('')
-// const ChatStore.isChatOpened = ref(false)
 
 const setAIChatScreen = () => {
-  // alert('setting chat screen')
   ChatStore.isChatOpened = true
 }
 
@@ -22,11 +20,11 @@ const onQuestionAsk = () => {
     if (!ChatStore.isChatOpened) {
       setAIChatScreen()
     }
+
     ChatData.Add2ChatList(questionInput.value, true)
 
     AiAnswer.value = SampleAnswers()
     ChatData.Add2ChatList(AiAnswer.value.answer, false)
-    // alert(AiAnswer.value.answer)
 
     questionInput.value = ''
   }
