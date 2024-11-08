@@ -1,9 +1,13 @@
 <script setup>
 import { SampleQuestions } from '@/assets/testData'
+import { useChatStore } from '@/stores/aichat'
+
 const dummyQues = SampleQuestions()
+
+const ChatStore = useChatStore()
 </script>
 <template>
-  <div id="sample-que-box">
+  <div v-if="!ChatStore.isChatOpened" id="sample-que-box">
     <div class="question-marquee-box">
       <Vue3Marquee
         :clone="true"
@@ -40,6 +44,7 @@ const dummyQues = SampleQuestions()
   width: 68vw;
   margin: 0% auto;
   margin-bottom: 10vh;
+  margin-top: 31vh;
 }
 .question-marquee-box {
   margin: 5px;

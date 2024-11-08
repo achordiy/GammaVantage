@@ -13,6 +13,7 @@ body {
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
+  opacity: 50%;
 }
 
 /* Track */
@@ -24,11 +25,13 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #919191;
   border-radius: 10px;
+  opacity: 50%;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: whitesmoke;
+  opacity: 100%;
 }
 
 /* END OF SCHROLL BAR */

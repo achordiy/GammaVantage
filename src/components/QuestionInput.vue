@@ -1,22 +1,55 @@
 <script setup>
 import EnterBtn from '@/assets/icons/EnterBtn.svg'
+import { ref } from 'vue'
+import { SampleAnswers } from '@/assets/testData'
+
+import { useChatStore } from '@/stores/aichat'
+import { useChatDataStore } from '@/stores/ChatData'
+
+const ChatStore = useChatStore()
+const ChatData = useChatDataStore()
+const questionInput = ref('')
+const AiAnswer = ref('')
+// const ChatStore.isChatOpened = ref(false)
+
+const setAIChatScreen = () => {
+  // alert('setting chat screen')
+  ChatStore.isChatOpened = true
+}
+
+const onQuestionAsk = () => {
+  if (questionInput.value !== '') {
+    if (!ChatStore.isChatOpened) {
+      setAIChatScreen()
+    }
+    ChatData.Add2ChatList(questionInput.value, true)
+
+    AiAnswer.value = SampleAnswers()
+    ChatData.Add2ChatList(AiAnswer.value.answer, false)
+    // alert(AiAnswer.value.answer)
+
+    questionInput.value = ''
+  }
+}
 </script>
 
 <template>
-  <div id="inp-box">
+  <div :id="ChatStore.isChatOpened ? 'inp-box-small' : 'inp-box'">
     <textarea
       v-autosize
       name="Text1"
       rows="3"
       cols="5"
       placeholder="Ask for precision..."
+      v-model="questionInput"
     ></textarea>
-    <button><img :src="EnterBtn" alt="Enter" /></button>
+    <button @click="onQuestionAsk"><img :src="EnterBtn" alt="Enter" /></button>
   </div>
 </template>
 
 <style scoped>
 #inp-box {
+  transition: all 1s ease-in-out;
   border: #828a9c 1px solid;
   width: 60vw;
   display: flex;
@@ -25,15 +58,43 @@ import EnterBtn from '@/assets/icons/EnterBtn.svg'
   flex-direction: row;
   border-radius: 10px;
   background-color: #161c2e;
-  margin: 0% auto;
-  margin-top: 13vh;
-  margin-bottom: 10vh;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+}
+
+#inp-box-small {
+  transition: all 1s ease-in-out;
+  border: #828a9c 1px solid;
+  width: 60vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  border-radius: 10px;
+  background-color: #161c2e;
+  /* margin: 0% auto; */
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* bottom: 20px; */
+  animation: MoveBar 1s ease-out forwards;
+}
+
+@keyframes MoveBar {
+  from {
+    top: 50vh;
+  }
+  to {
+    top: 88vh;
+  }
 }
 textarea:focus {
   outline: none;
 }
 
-#inp-box textarea {
+textarea {
   height: 20px;
   min-height: 20px;
   resize: vertical;
@@ -48,7 +109,7 @@ textarea:focus {
   font-style: normal;
 }
 
-#inp-box button {
+button {
   background: none;
   border: none;
   transition: all ease-in-out 400ms;
@@ -64,7 +125,7 @@ img {
   height: 45px;
   width: 45px;
 }
-#inp-box button:hover {
+button:hover {
   background-color: #101524;
 }
 @media only screen and (max-width: 768px) {
@@ -72,6 +133,20 @@ img {
 
   #inp-box {
     width: 85vw;
+  }
+
+  #inp-box-small {
+    width: 85vw;
+    animation: MoveBar 1s ease-out forwards;
+  }
+
+  @keyframes MoveBar {
+    from {
+      top: 50vh;
+    }
+    to {
+      top: 84vh;
+    }
   }
 }
 </style>
