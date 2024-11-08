@@ -73,6 +73,7 @@ const ChatStore = useChatStore()
   #sample-que-box {
     width: 90vw;
     margin: 0% auto;
+    margin-top: 31vh;
   }
 }
 </style>
