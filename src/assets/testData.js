@@ -78,6 +78,7 @@ export function SampleAnswers() {
     },
   ]
   const randomIndex = Math.floor(Math.random() * dummyAnswers.length)
+  randomIndex = Math.floor(Math.random() * dummyAnswers.length)
 
   return dummyAnswers[randomIndex]
 }

@@ -3,6 +3,6 @@ import { defineStore } from 'pinia'
 
 export const useChatStore = defineStore('ai-chat', () => {
   const isChatOpened = ref(false)
-
-  return { isChatOpened }
+  const ProcessingAi = ref(false)
+  return { isChatOpened, ProcessingAi }
 })

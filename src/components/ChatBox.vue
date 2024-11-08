@@ -27,6 +27,7 @@ watch(ChatData.ChatList, scrollToBottom)
     >
       {{ chatText.text }}
     </div>
+    <div v-if="ChatStore.ProcessingAi" class="text-by-ai">...</div>
   </div>
 </template>
 

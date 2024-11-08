@@ -22,10 +22,10 @@ const onQuestionAsk = () => {
     }
 
     ChatData.Add2ChatList(questionInput.value, true)
-
+    ChatStore.ProcessingAi = true
     AiAnswer.value = SampleAnswers()
     ChatData.Add2ChatList(AiAnswer.value.answer, false)
-
+    ChatStore.ProcessingAi = false
     questionInput.value = ''
   }
 }
@@ -41,7 +41,9 @@ const onQuestionAsk = () => {
       placeholder="Ask for precision..."
       v-model="questionInput"
     ></textarea>
-    <button @click="onQuestionAsk"><img :src="EnterBtn" alt="Enter" /></button>
+    <button :disabled="ChatStore.ProcessingAi" @click="onQuestionAsk">
+      <img :src="EnterBtn" alt="Enter" />
+    </button>
   </div>
 </template>
 
