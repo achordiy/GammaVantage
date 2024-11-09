@@ -1,13 +1,18 @@
 <script setup>
 import SeactionHeading from '@/components/sections/SeactionHeading.vue'
+
 import { onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router'
+
 import VueMarkdown from 'vue-markdown-render'
-// import TestMd from '@/assets/test.md'
-const options = { html: true }
 import MarkdownItAnchor from 'markdown-it-anchor'
+
+import '@/assets/markdown.css'
+
+const options = { html: true }
 const src = ref('')
 const plugins = [MarkdownItAnchor]
-import '@/assets/markdown.css'
+
 onMounted(async () => {
   try {
     const response = await fetch('/test.md')
@@ -19,10 +24,13 @@ onMounted(async () => {
     console.error('Error fetching markdown file:', error)
   }
 })
+
+const route = useRoute()
+const articleId = ref(route.params.id)
 </script>
 
 <template>
-  <SeactionHeading />
+  <SeactionHeading :head1="'Article Heading ' + articleId" />
   <div class="markdown-content">
     <VueMarkdown :source="src" :options="options" :plugins="plugins" />
   </div>
@@ -37,14 +45,23 @@ onMounted(async () => {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 } */
-
+.markdown-content p {
+  width: 70%;
+}
 .markdown-content img {
   width: 50vw;
+  margin: 0% auto !important;
+}
+
+.markdown-content h3 {
+  animation: slideInFromLeft 850ms forwards;
 }
 
 .markdown-content {
-  font-family: Arial, sans-serif;
-  color: whitesmoke;
+  font-family: 'Alef', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(228, 216, 216);
   line-height: 1.6;
   width: 90vw;
   margin: 0% auto !important;
@@ -60,6 +77,22 @@ onMounted(async () => {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .markdown-content p {
+    width: 100%;
+  }
+  /* For mobile phones: */
+  p:has(img) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .markdown-content img {
+    width: 80vw;
+    margin: 0% auto !important;
   }
 }
 </style>

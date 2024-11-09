@@ -1,6 +1,6 @@
 <script setup>
 import EnterBtn from '@/assets/icons/EnterBtn.svg'
-import { nextTick, ref } from 'vue'
+import { watch, ref } from 'vue'
 import { SampleAnswers } from '@/assets/testData'
 
 import { useChatStore } from '@/stores/aichat'
@@ -14,6 +14,14 @@ const AiAnswer = ref('')
 const setAIChatScreen = () => {
   ChatStore.isChatOpened = true
 }
+
+watch(
+  () => ChatStore.useSampleQuestion,
+  () => {
+    questionInput.value = ChatStore.useSampleQuestion
+    onQuestionAsk()
+  }
+)
 
 async function onQuestionAsk() {
   if (questionInput.value !== '') {
@@ -98,6 +106,8 @@ textarea:focus {
 }
 
 textarea {
+  max-height: 100px;
+  overflow-y: scroll;
   height: 20px;
   min-height: 20px;
   resize: vertical;

@@ -5,6 +5,11 @@ import { useChatStore } from '@/stores/aichat'
 const dummyQues = SampleQuestions()
 
 const ChatStore = useChatStore()
+
+const SetFromSampleQues = (ques) => {
+  ChatStore.useSampleQuestion = ques
+  console.log(ques)
+}
 </script>
 <template>
   <div v-if="!ChatStore.isChatOpened" id="sample-que-box">
@@ -17,7 +22,16 @@ const ChatStore = useChatStore()
         :gradient-color="[16, 21, 36]"
         gradient-length="15%"
       >
-        <div class="question-marquee" v-for="ques in dummyQues" :key="ques.question">
+        <div
+          class="question-marquee"
+          v-for="ques in dummyQues"
+          :key="ques.question"
+          @click="
+            () => {
+              SetFromSampleQues(ques.question)
+            }
+          "
+        >
           {{ ques.question }}
         </div>
       </Vue3Marquee>
@@ -31,7 +45,16 @@ const ChatStore = useChatStore()
         :gradient-color="[16, 21, 36]"
         gradient-length="15%"
       >
-        <div class="question-marquee" v-for="ques in dummyQues" :key="ques.question">
+        <div
+          class="question-marquee"
+          v-for="ques in dummyQues"
+          :key="ques.question"
+          @click="
+            () => {
+              SetFromSampleQues(ques.question)
+            }
+          "
+        >
           {{ ques.question }}
         </div>
       </Vue3Marquee>

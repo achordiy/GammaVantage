@@ -37,51 +37,61 @@ export function SampleQuestions() {
 export function SampleBlogs() {
   const data = [
     {
+      id: 'article-1',
       title: 'AI in Trading: The Future of F&O Markets',
       description:
         'Discover how artificial intelligence is reshaping futures and options trading with real-time insights and predictive analytics.',
     },
     {
+      id: 'article-2',
       title: 'Mastering Option Chains: A Beginner’s Guide',
       description:
         'A step-by-step guide to understanding option chains and leveraging them for smarter trading decisions.',
     },
     {
+      id: 'article-3',
       title: 'Sector Trends You Can’t Ignore in 2024',
       description:
         'Explore the top sectoral trends and how they impact market movements, helping you stay ahead of the curve.',
     },
     {
+      id: 'article-4',
       title: 'Trading with Real-Time Data: Why It Matters',
       description:
         'Learn the importance of real-time data in fast-moving markets and how it can enhance your trading strategy.',
     },
     {
+      id: 'article-5',
       title: 'Top 5 Indicators for Evaluating Stock Performance',
       description:
         'Get acquainted with essential indicators that help assess stock performance and support data-driven decisions.',
     },
     {
+      id: 'article-6',
       title: 'Avoiding Common Mistakes in F&O Trading',
       description:
         'Identify frequent pitfalls in F&O trading and strategies to help you make more calculated, confident trades.',
     },
     {
+      id: 'article-7',
       title: 'How to Set Effective Alerts for Market Movements',
       description:
         'Find out how to set customized alerts to stay informed of crucial stock and sector changes in real time.',
     },
     {
+      id: 'article-8',
       title: 'Breaking Down Market Sentiment for Traders',
       description:
         'An analysis of market sentiment indicators and how they can guide your trading strategies.',
     },
     {
+      id: 'article-9',
       title: 'A Guide to Using GammaVantage’s AI Bot for Trading Insights',
       description:
         'Learn how to make the most of GammaVantage’s WhatsApp AI bot for instant access to valuable market insights.',
     },
     {
+      id: 'article-10',
       title: 'The Rise of Renewable Energy Stocks: Opportunities and Risks',
       description:
         'Examine the growth of renewable energy stocks, key drivers, and what to consider before investing.',

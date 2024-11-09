@@ -50,4 +50,24 @@ h2 {
     opacity: 1;
   }
 }
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  h1 {
+    font-family: 'Inria Serif', serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 35px;
+    margin: 5px 25px;
+    animation: slideInFromLeft 500ms forwards;
+  }
+
+  h2 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    margin: 5px 40px;
+    animation: slideInFromLeft 750ms forwards;
+  }
+}
 </style>

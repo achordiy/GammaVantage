@@ -71,6 +71,7 @@ h3 {
   font-family: 'Alef', sans-serif;
   font-weight: 700;
   font-style: normal;
+  animation: slideInFromLeft 850ms forwards;
 }
 @keyframes slideInFromLeft {
   0% {
@@ -80,6 +81,20 @@ h3 {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  #contact-text {
+    margin: 5px 40px;
+    font-family: 'Alef', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    width: 84%;
+    margin-top: 25px;
+    animation: slideInFromLeft 1s forwards;
+    margin-bottom: 33vh;
   }
 }
 </style>

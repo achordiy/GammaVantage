@@ -1,13 +1,31 @@
 
 <script setup>
-import { RouterLink } from 'vue-router'
+import { ref } from 'vue'
+import { watch } from 'vue'
+import { RouterLink, useRoute } from 'vue-router'
+
+const route = useRoute()
+
+const ForHome = ref(true)
+
+watch(
+  () => route.name,
+  () => {
+    if (route.name == 'home') {
+      ForHome.value = true
+    } else {
+      ForHome.value = false
+    }
+  }
+)
 </script>
 
 <template>
   <div id="footer-box">
-    <router-link to="/about#about-box" class="nav-element"> About Us </router-link>
+    <router-link v-if="ForHome" to="/about#about-box" class="nav-element"> About Us </router-link>
+    <router-link v-if="!ForHome" to="/" class="nav-element"> AI Chat </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="/about" class="nav-element"> Whatsapp </router-link>
+    <router-link to="/about#contact-box" class="nav-element"> Whatsapp </router-link>
     <span class="nav-element-dot">•</span>
     <router-link to="/about#blogs-box" class="nav-element"> Blogs </router-link>
     <span class="nav-element-dot">•</span>
@@ -43,13 +61,18 @@ import { RouterLink } from 'vue-router'
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0% auto;
   position: fixed;
   bottom: 0%;
-  right: 1px;
+
   margin-bottom: 20px;
   z-index: 100;
-  width: 100%;
+  width: 90%;
   gap: 15px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #10152490;
+  border-radius: 5px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -59,7 +82,7 @@ import { RouterLink } from 'vue-router'
     color: #c8d1e6;
   }
   #footer-box {
-    right: 1px;
+    gap: 5px;
   }
 }
 </style>
