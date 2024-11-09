@@ -31,7 +31,7 @@ watch(
     <span class="nav-element-dot">•</span>
     <router-link to="/about#contact-box" class="nav-element"> Contacts </router-link>
     <span class="nav-element-dot">•</span>
-    <router-link to="t&c" class="nav-element"> Terms & Condition </router-link>
+    <router-link to="/t&c" class="nav-element"> Terms & Condition </router-link>
   </div>
 </template>
 
