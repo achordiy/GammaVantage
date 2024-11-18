@@ -2,13 +2,14 @@
 import { ref, watch } from 'vue'
 import { useChatStore } from '@/stores/aichat'
 import { useChatDataStore } from '@/stores/ChatData'
+import VueMarkdown from 'vue-markdown-render'
+
 const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
 const skippedFirstScroll = ref(false)
-import VueMarkdown from 'vue-markdown-render'
+
 const scrollToBottom = () => {
   setTimeout(() => {
-    // alert('asdas')
     if (skippedFirstScroll.value) {
       window.scrollTo({
         top: document.documentElement.scrollHeight,
@@ -39,7 +40,6 @@ watch(ChatData.ChatList, scrollToBottom)
 
 <style scoped>
 .text-by-ai {
-  /* height: 50px; */
   padding: 10px;
   margin: 5px;
   margin-bottom: 10px;
@@ -54,6 +54,7 @@ watch(ChatData.ChatList, scrollToBottom)
   font-family: 'Alef', sans-serif;
   font-weight: 400;
   font-style: normal;
+  overflow: scroll;
 }
 .text-by-man {
   font-family: 'Alef', sans-serif;
