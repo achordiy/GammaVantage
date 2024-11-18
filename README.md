@@ -10,6 +10,7 @@ This repository contains the frontend code for the **GammaVantage** platform. De
 - [Tech Stack](#tech-stack)
 - [Installation](#installation)
 - [Changing the API URL](#changing-the-api-url)
+- [Adding Blogs](#adding-blogs)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
 - [License](#license)
@@ -19,12 +20,6 @@ This repository contains the frontend code for the **GammaVantage** platform. De
 ## **Overview**
 
 This project delivers a seamless frontend for GammaVantage, ensuring responsiveness, scalability, and modern UI/UX for traders.
-
-**Key Features:**
-
-- **AI Chat Support**: Integrated chatbot for real-time assistance.
-- **Dynamic Content**: Blogs, articles, and market insights delivered dynamically from the backend.
-- **Modern UI/UX**: Built with scalability and responsiveness in mind.
 
 ---
 
@@ -126,17 +121,65 @@ For deployment (e.g., Vercel), update the `vercel.json` file:
 
 ---
 
+## **Adding Blogs**
+
+Adding blogs to GammaVantage is simple and straightforward.
+
+1. **Edit the Blog Data**:  
+   Navigate to the file `src/assets/data/Blogs.json`. Add a new entry in the following format:
+
+   ```json
+   {
+     "id": "unique-id",
+     "title": "Blog Title",
+     "description": "A brief summary of the blog.",
+     "file": "filename.md"
+   }
+   ```
+
+   Example:
+
+   ```json
+   {
+     "id": "article-3",
+     "title": "NEW - Trading with Real-Time Data: Why It Matters",
+     "description": "Learn the importance of real-time data in fast-moving markets and how it can enhance your trading strategy.",
+     "file": "real-time-trading.md"
+   }
+   ```
+
+2. **Add the Blog Content**:  
+   Place the corresponding markdown file in the `public/markdown/` directory.
+
+   Example:
+
+   - If the `"file"` in `Blogs.json` is `real-time-trading.md`, ensure the file `real-time-trading.md` exists in `public/markdown/`.
+
+3. **Verify**:  
+   Save the changes, and restart the development server if needed:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Done**:  
+   The blog will now appear on the platform dynamically.
+
+---
+
 ## **Project Structure**
 
 ```plaintext
 gamma-vantage-frontend/
-├── public/          # Static assets (e.g., images, logos)
+├── public/          # Static assets (e.g., images, logos, markdown files)
+│   ├── markdown/    # Blog markdown files
 ├── src/
 │   ├── assets/      # Project-specific assets
+│   │   ├── data/    # JSON data for blogs
 │   ├── components/  # Vue components
 │   ├── views/       # Page components
 │   ├── router/      # App routing logic
-│   ├── store/       # State management (Pinia/
+│   ├── store/       # State management (Pinia/Vuex)
 │   └── main.js      # App entry point
 ├── vite.config.js   # Vite configuration
 └── package.json     # Project metadata and dependencies

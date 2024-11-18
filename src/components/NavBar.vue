@@ -22,7 +22,7 @@ watch(
 
 <template>
   <div id="footer-box">
-    <router-link v-if="ForHome" to="/about#about-box" class="nav-element"> About Us </router-link>
+    <router-link v-if="ForHome" to="/about#head-box" class="nav-element"> About Us </router-link>
     <router-link v-if="!ForHome" to="/" class="nav-element"> AI Chat </router-link>
     <span class="nav-element-dot">•</span>
     <router-link to="/about#contact-box" class="nav-element"> Whatsapp </router-link>
