@@ -11,6 +11,7 @@ This repository contains the frontend code for the **GammaVantage** platform. De
 - [Installation](#installation)
 - [Changing the API URL](#changing-the-api-url)
 - [Adding Blogs](#adding-blogs)
+- [Adding/Modifying Sample Questions](#addingmodifying-sample-questions)
 - [Project Structure](#project-structure)
 - [Deployment](#deployment)
 - [License](#license)
@@ -167,6 +168,40 @@ Adding blogs to GammaVantage is simple and straightforward.
 
 ---
 
+1. **Edit the Sample Question Data**:  
+   Navigate to the file `src/assets/data/SampleQuestionDB.json`. Add, edit, or remove questions as required in the following format:
+
+   ```json
+   {
+     "id": unique-id,
+     "question": "Your sample question"
+   }
+   ```
+
+   Example:
+
+   ```json
+   {
+     "id": 17,
+     "question": "What are the top 5 performing sectors today?"
+   }
+   ```
+
+2. **Ensure Unique IDs**:  
+   Each entry must have a unique `id` to avoid conflicts.
+
+3. **Save and Verify**:  
+   Save the file, and restart the development server if necessary:
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Done**:  
+   The new or modified questions will now appear in the application.
+
+---
+
 ## **Project Structure**
 
 ```plaintext
@@ -212,7 +247,3 @@ The project is designed for deployment on Vercel. To deploy:
 This repository is **closed-source** and proprietary to **GammaVantage**. Redistribution or use without explicit permission is prohibited.
 
 For inquiries, contact [support@gammavantage.com](mailto:support@gammavantage.com).
-
----
-
-Let me know if you need any further customization or specific sections!
