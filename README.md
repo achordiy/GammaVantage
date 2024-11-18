@@ -32,7 +32,7 @@ This project delivers a seamless frontend for GammaVantage, ensuring responsiven
 
 - **Framework**: [Vue 3](https://vuejs.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **State Management**: [Pinia](https://pinia.vuejs.org/) (optional, based on your project)
+- **State Management**: [Pinia](https://pinia.vuejs.org/)
 
 ---
 
