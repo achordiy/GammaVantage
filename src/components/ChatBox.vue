@@ -136,7 +136,7 @@ watch(ChatData.ChatList, scrollToBottom)
   .text-by-man,
   .text-by-ai {
     padding: 10px;
-    max-width: 95%;
+    max-width: 93%;
   }
 }
 </style>
