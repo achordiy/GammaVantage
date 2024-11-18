@@ -54,7 +54,6 @@ watch(ChatData.ChatList, scrollToBottom)
   font-family: 'Alef', sans-serif;
   font-weight: 400;
   font-style: normal;
-  overflow: scroll;
 }
 .text-by-man {
   font-family: 'Alef', sans-serif;
