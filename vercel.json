@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/api/:path*",
+      "destination": "https://4d62-110-226-68-69.ngrok-free.app/:path*"
+    },
+    {
       "source": "/(.*)",
       "destination": "/"
     }
