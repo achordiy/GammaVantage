@@ -32,7 +32,6 @@ This project delivers a seamless frontend for GammaVantage, ensuring responsiven
 
 - **Framework**: [Vue 3](https://vuejs.org/)
 - **Build Tool**: [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) (or other frameworks, if applicable)
 - **State Management**: [Pinia](https://pinia.vuejs.org/) (optional, based on your project)
 
 ---
