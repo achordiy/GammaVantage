@@ -6,6 +6,8 @@
 
 ## Table of Contents
 
+<span style="color: red;">This text is red.</span>
+
 - [Introduction](#introduction)
 - [Why we Made it](#why-kraken)
 - [Degine Theory](#design-theory)

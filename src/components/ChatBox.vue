@@ -3,7 +3,7 @@ import { ref, watch } from 'vue'
 import { useChatStore } from '@/stores/aichat'
 import { useChatDataStore } from '@/stores/ChatData'
 import VueMarkdown from 'vue-markdown-render'
-
+import '@/assets/markdown.css'
 const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
 const skippedFirstScroll = ref(false)
@@ -31,7 +31,9 @@ watch(ChatData.ChatList, scrollToBottom)
       :key="chatText"
       :class="chatText.byMan ? 'text-by-man' : 'text-by-ai'"
     >
-      <VueMarkdown v-if="!chatText.byMan" :source="chatText.text" :options="options" />
+      <span v-if="!chatText.byMan" class="markdown-content"
+        ><VueMarkdown :source="chatText.text" :options="options"
+      /></span>
       <span v-else>{{ chatText.text }}</span>
     </div>
     <div v-if="ChatStore.ProcessingAi" class="text-by-ai">...</div>
@@ -39,6 +41,14 @@ watch(ChatData.ChatList, scrollToBottom)
 </template>
 
 <style scoped>
+.markdown-content {
+  font-family: 'Alef', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #d7c2be;
+  background: none !important;
+  margin-bottom: 10vh !important;
+}
 .text-by-ai {
   padding: 10px;
   margin: 5px;
