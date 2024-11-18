@@ -1,21 +1,28 @@
 <script setup>
 import SeactionHeading from '@/components/sections/SeactionHeading.vue'
-
 import { onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router'
-
 import VueMarkdown from 'vue-markdown-render'
 import MarkdownItAnchor from 'markdown-it-anchor'
-
 import '@/assets/markdown.css'
+import BlogsListJson from '@/assets/data/Blogs.json'
 
+function getFileById(id) {
+  const article = BlogsListJson.find((article) => article.id === id)
+  return article ? article.file : null
+}
+
+const route = useRoute()
 const options = { html: true }
 const src = ref('')
 const plugins = [MarkdownItAnchor]
+const articleId = ref(route.params.id)
+
+const fileName = getFileById(articleId.value)
 
 onMounted(async () => {
   try {
-    const response = await fetch('/test.md')
+    const response = await fetch('/markdown/' + fileName)
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
@@ -24,13 +31,10 @@ onMounted(async () => {
     console.error('Error fetching markdown file:', error)
   }
 })
-
-const route = useRoute()
-const articleId = ref(route.params.id)
 </script>
 
 <template>
-  <SeactionHeading :head1="'Article Heading ' + articleId" />
+  <SeactionHeading :head1="'Article Heading '" />
   <div class="markdown-content">
     <VueMarkdown :source="src" :options="options" :plugins="plugins" />
   </div>
@@ -38,13 +42,6 @@ const articleId = ref(route.params.id)
 
 
 <style >
-/* Markdown Content Styles */
-/* .markdown-content code {
-  font-family: Consolas, Monaco, 'Courier New', monospace;
-  background: #eee;
-  padding: 0.2em 0.4em;
-  border-radius: 3px;
-} */
 .markdown-content p {
   width: 70%;
 }

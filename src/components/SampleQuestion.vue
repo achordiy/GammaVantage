@@ -1,7 +1,7 @@
 <script setup>
 import { SampleQuestions } from '@/assets/testData'
 import { useChatStore } from '@/stores/aichat'
-
+import SampleQuestionsJson from '@/assets/data/SampleQuestionDB.json'
 const dummyQues = SampleQuestions()
 
 const ChatStore = useChatStore()
@@ -16,7 +16,7 @@ const SetFromSampleQues = (ques) => {
     <div class="question-marquee-box">
       <Vue3Marquee
         :clone="true"
-        :duration="75"
+        :duration="55"
         :pause-on-hover="true"
         :gradient="true"
         :gradient-color="[16, 21, 36]"
@@ -24,7 +24,7 @@ const SetFromSampleQues = (ques) => {
       >
         <div
           class="question-marquee"
-          v-for="ques in dummyQues"
+          v-for="ques in SampleQuestionsJson"
           :key="ques.question"
           @click="
             () => {
@@ -39,7 +39,7 @@ const SetFromSampleQues = (ques) => {
     <div class="question-marquee-box">
       <Vue3Marquee
         :clone="true"
-        :duration="100"
+        :duration="90"
         :pause-on-hover="true"
         :gradient="true"
         :gradient-color="[16, 21, 36]"
@@ -47,7 +47,7 @@ const SetFromSampleQues = (ques) => {
       >
         <div
           class="question-marquee"
-          v-for="ques in dummyQues"
+          v-for="ques in SampleQuestionsJson"
           :key="ques.question"
           @click="
             () => {

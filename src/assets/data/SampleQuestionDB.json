@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "question": "Analyze Infosys (INFY)"
+  },
+  {
+    "id": 2,
+    "question": "Give me MCX product details"
+  },
+  {
+    "id": 3,
+    "question": "Give me gold and silver data"
+  },
+  {
+    "id": 4,
+    "question": "Where is TCS?"
+  },
+  {
+    "id": 5,
+    "question": "What was the ACC call last week?"
+  },
+  {
+    "id": 6,
+    "question": "Give me Reliance ATM call price at the start of every month"
+  },
+  {
+    "id": 7,
+    "question": "What would be my PnL if I took an Adani Call yesterday morning?"
+  },
+  {
+    "id": 8,
+    "question": "Give me all indices data"
+  },
+  {
+    "id": 15,
+    "question": "Explain the meaning of call and put option"
+  },
+  {
+    "id": 16,
+    "question": "I want to take an INFY call. Which strike to buy?"
+  },
+  {
+    "id": 9,
+    "question": "Where is USD heading?"
+  },
+  {
+    "id": 10,
+    "question": "Why did Idea fall so much today?"
+  },
+  {
+    "id": 2,
+    "question": "Give me MCX product details"
+  },
+  {
+    "id": 3,
+    "question": "Give me gold and silver data"
+  },
+  {
+    "id": 4,
+    "question": "Where is TCS?"
+  },
+  {
+    "id": 11,
+    "question": "What's the news on Asian Paints?"
+  },
+  {
+    "id": 12,
+    "question": "Analyze my trade book and PnL report"
+  },
+  {
+    "id": 13,
+    "question": "Give me 21 EMA data"
+  },
+  {
+    "id": 14,
+    "question": "Give me CPR stocks"
+  }
+]

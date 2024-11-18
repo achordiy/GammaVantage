@@ -1,5 +1,9 @@
 <script setup>
 import EnterBtn from '@/assets/icons/EnterBtn.svg'
+import WebBtn from '@/assets/icons/web-ser.svg'
+import AttachmentBtn from '@/assets/icons/attachment2.png'
+import TwitterBtn from '@/assets/icons/twitterBtn.svg'
+
 import { watch, ref } from 'vue'
 import { SampleAnswers } from '@/assets/testData'
 
@@ -23,6 +27,27 @@ watch(
   }
 )
 
+async function CallAPI(topic) {
+  console.log(topic)
+  try {
+    const a = {
+      method: 'get',
+      headers: new Headers({
+        'ngrok-skip-browser-warning': '69420',
+        Origin: window.location.origin,
+      }),
+    }
+    const response = await fetch('/api/botweb?query=' + topic, a)
+    if (!response.ok) {
+      throw new Error('Network response was not ok')
+    }
+    const ans = await response.text()
+    return ans
+  } catch (error) {
+    console.error('Error fetching markdown file:', error)
+  }
+}
+
 async function onQuestionAsk() {
   if (questionInput.value !== '') {
     if (!ChatStore.isChatOpened) {
@@ -35,15 +60,59 @@ async function onQuestionAsk() {
     ChatStore.ProcessingAi = true
 
     questionInput.value = ''
-    AiAnswer.value = await SampleAnswers()
-    ChatData.Add2ChatList(AiAnswer.value.answer, false)
+    AiAnswer.value = await CallAPI(userText)
+    console.log(AiAnswer.value)
+    ChatData.Add2ChatList(AiAnswer.value, false)
     ChatStore.ProcessingAi = false
+  }
+}
+
+const toolType = ref('nan')
+
+const SetToolFunction = (type) => {
+  if (type === toolType.value) {
+    toolType.value = 'nan'
+    return
+  }
+  if ('tool-file' == type) {
+    toolType.value = 'tool-file'
+  } else if ('tool-web' == type) {
+    toolType.value = 'tool-web'
+  } else if ('tool-x' == type) {
+    toolType.value = 'tool-x'
   }
 }
 </script>
 
 <template>
   <div :id="ChatStore.isChatOpened ? 'inp-box-small' : 'inp-box'">
+    <transition name="cc1">
+      <button
+        :class="toolType === 'tool-file' ? 'tool-active tool-btn' : 'tool-btn'"
+        v-if="!ChatStore.isChatOpened"
+        @click="SetToolFunction('tool-file')"
+      >
+        <img :src="AttachmentBtn" alt="Attchment file" />
+      </button>
+    </transition>
+    <transition name="cc1">
+      <button
+        :class="toolType === 'tool-web' ? 'tool-active tool-btn' : 'tool-btn'"
+        v-if="!ChatStore.isChatOpened"
+        @click="SetToolFunction('tool-web')"
+      >
+        <img :src="WebBtn" alt="Web Search" />
+      </button>
+    </transition>
+    <transition name="cc1">
+      <button
+        :class="toolType === 'tool-x' ? 'tool-active tool-btn' : 'tool-btn'"
+        v-if="!ChatStore.isChatOpened"
+        @click="SetToolFunction('tool-x')"
+      >
+        <img :src="TwitterBtn" alt="twitter Search" />
+      </button>
+    </transition>
     <textarea
       v-autosize
       name="Text1"
@@ -59,6 +128,18 @@ async function onQuestionAsk() {
 </template>
 
 <style scoped>
+.tool-active {
+  box-shadow: 0px 0px 5px 0px rgba(254, 187, 173, 1);
+}
+.tool-btn {
+  height: 35px;
+  width: 35px;
+  margin: 1px;
+}
+.tool-btn img {
+  height: 35px;
+  width: 35px;
+}
 #inp-box {
   transition: all 1s ease-in-out;
   border: #828a9c 1px solid;
@@ -73,6 +154,7 @@ async function onQuestionAsk() {
   left: 50%;
   transform: translate(-50%, -50%);
   top: 50vh;
+  padding-left: 3px;
 }
 
 #inp-box-small {
@@ -91,6 +173,7 @@ async function onQuestionAsk() {
   transform: translate(-50%, -50%);
   /* bottom: 20px; */
   animation: MoveBar 1s ease-out forwards;
+  padding-left: 3px;
 }
 
 @keyframes MoveBar {
@@ -120,6 +203,7 @@ textarea {
   font-family: 'Alef', sans-serif;
   font-weight: 400;
   font-style: normal;
+  transition: width ease-in-out 400ms;
 }
 
 button {
@@ -161,5 +245,15 @@ button:hover {
       top: 84vh;
     }
   }
+}
+
+.cc1-leave-from {
+  opacity: 1;
+}
+.cc1-leave-to {
+  opacity: 0;
+}
+.cc1-leave-active {
+  transition: all ease-in-out 400ms;
 }
 </style>

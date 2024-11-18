@@ -1,12 +1,12 @@
 <script setup>
 import { computed, ref } from 'vue'
 import SeactionHeading from './SeactionHeading.vue'
-import { SampleBlogs } from '@/assets/testData'
-import { RouterLink } from 'vue-router'
-const BlogsListData = SampleBlogs()
 
+import BlogsListJson from '@/assets/data/Blogs.json'
+import { RouterLink } from 'vue-router'
+
+const BlogsListData = BlogsListJson
 const isBlogFull = ref(false)
-// const fewElements = BlogsListData.slice(0, 5)
 
 const Articles = computed(() => {
   return isBlogFull.value ? BlogsListData : BlogsListData.slice(0, 5)
@@ -33,7 +33,7 @@ const SwitchBlogFull = () => {
             <p>{{ article.description }}</p>
           </router-link>
         </li>
-        <li @click="SwitchBlogFull" class="blog-less-full">
+        <li v-if="BlogsListData.length > 5" @click="SwitchBlogFull" class="blog-less-full">
           {{ isBlogFull ? 'Read Less' : 'Read More' }}
         </li>
       </ul>

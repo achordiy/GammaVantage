@@ -5,7 +5,7 @@ import { useChatDataStore } from '@/stores/ChatData'
 const ChatStore = useChatStore()
 const ChatData = useChatDataStore()
 const skippedFirstScroll = ref(false)
-
+import VueMarkdown from 'vue-markdown-render'
 const scrollToBottom = () => {
   setTimeout(() => {
     // alert('asdas')
@@ -30,7 +30,8 @@ watch(ChatData.ChatList, scrollToBottom)
       :key="chatText"
       :class="chatText.byMan ? 'text-by-man' : 'text-by-ai'"
     >
-      {{ chatText.text }}
+      <VueMarkdown v-if="!chatText.byMan" :source="chatText.text" :options="options" />
+      <span v-else>{{ chatText.text }}</span>
     </div>
     <div v-if="ChatStore.ProcessingAi" class="text-by-ai">...</div>
   </div>
