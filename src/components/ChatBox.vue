@@ -31,9 +31,17 @@ watch(ChatData.ChatList, scrollToBottom)
       :key="chatText"
       :class="chatText.byMan ? 'text-by-man' : 'text-by-ai'"
     >
-      <span v-if="!chatText.byMan" class="markdown-content"
-        ><VueMarkdown :source="chatText.text" :options="options"
-      /></span>
+      <span v-if="!chatText.byMan" class="markdown-content">
+        <!-- <span v-if="chatText.text.type === 'str'">{{ chatText.text.text }} </span>
+
+        <VueMarkdown
+          v-if="chatText.text.type === 'md'"
+          :source="chatText.text.text"
+          :options="options"
+        /> -->
+
+        <VueMarkdown :source="chatText.text.text" :options="options" />
+      </span>
       <span v-else>{{ chatText.text }}</span>
     </div>
     <div v-if="ChatStore.ProcessingAi" class="text-by-ai">...</div>

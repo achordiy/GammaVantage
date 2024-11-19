@@ -26,7 +26,16 @@ watch(
     onQuestionAsk()
   }
 )
+function createJsonResponse(rawResponse) {
+  // Split the raw response at the first space to get the type and the rest as the text
+  const [type, ...textParts] = rawResponse.split(' ')
+  const text = textParts.join(' ') // Rejoin the rest to form the full text
 
+  return {
+    type: type,
+    text: text,
+  }
+}
 async function CallAPI(topic) {
   console.log(topic)
   try {
@@ -41,7 +50,8 @@ async function CallAPI(topic) {
     if (!response.ok) {
       throw new Error('Network response was not ok')
     }
-    const ans = await response.text()
+    var ans = await response.text()
+    ans = createJsonResponse(ans)
     return ans
   } catch (error) {
     console.error('Error fetching markdown file:', error)
