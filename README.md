@@ -83,7 +83,7 @@ The application uses a proxy to connect to the backend API. Follow these steps t
    server: {
      proxy: {
        '/api': {
-         target: 'https://current-api-url.com',
+         target: 'http://15.207.89.208:9876/',
          changeOrigin: true,
          rewrite: (path) => path.replace(/^\/api/, ''),
        },
@@ -91,7 +91,7 @@ The application uses a proxy to connect to the backend API. Follow these steps t
    },
    ```
 
-3. Replace `https://current-api-url.com` with the new API URL.
+3. Replace `http://15.207.89.208:9876/` with the new API URL.
 
 4. Save the file and restart the server:
    ```bash
@@ -108,12 +108,12 @@ For deployment (e.g., Vercel), update the `vercel.json` file:
    "rewrites": [
      {
        "source": "/api/:path*",
-       "destination": "https://current-api-url.com/:path*"
+       "destination": "http://15.207.89.208:9876/:path*"
      }
    ]
    ```
 
-2. Replace `https://current-api-url.com` with the new API URL.
+2. Replace `http://15.207.89.208:9876/` with the new API URL.
 
 3. Redeploy the project:
    ```bash
