@@ -124,11 +124,13 @@ const SetToolFunction = (type) => {
       </button>
     </transition>
     <textarea
+      :disabled="ChatStore.ProcessingAi"
       v-autosize
       name="Text1"
       rows="3"
       cols="5"
       placeholder="Ask for precision..."
+      @keydown.enter="onQuestionAsk"
       v-model="questionInput"
     ></textarea>
     <button :disabled="ChatStore.ProcessingAi" @click="onQuestionAsk">

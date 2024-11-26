@@ -72,8 +72,10 @@ watch(ChatData.ChatList, scrollToBottom)
   font-family: 'Alef', sans-serif;
   font-weight: 400;
   font-style: normal;
+  word-wrap: break-word;
 }
 .text-by-man {
+  word-wrap: break-word;
   font-family: 'Alef', sans-serif;
   font-weight: 400;
   font-style: normal;
