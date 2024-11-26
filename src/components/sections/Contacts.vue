@@ -41,7 +41,7 @@ import Twitter from '@/assets/icons/twitter.svg'
           ><img :src="Insta" alt="Instagram"
         /></a>
       </div>
-      <h3>GST :- 09AAACH7409R1ZZ</h3>
+      <h3>GST :- 36EMFPS6162G1ZP</h3>
     </div>
   </div>
 </template>
